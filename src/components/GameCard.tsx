@@ -6,6 +6,7 @@ import { ArrowUpRight, Play } from './Icons'
 const themes: Record<Game['theme'], string> = {
   snake: 'from-[#E9F5EE] via-[#D8EFE1] to-[#BCE3D1]',
   merge: 'from-[#FFF5E8] via-[#FFE7CB] to-[#FFD3A8]',
+  fish: 'from-[#E9F5FA] via-[#D8EDF6] to-[#BFE3F0]',
 }
 
 export default function GameCard({ game }: { game: Game }) {

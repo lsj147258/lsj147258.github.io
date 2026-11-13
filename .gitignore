@@ -7,3 +7,6 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 npm-debug.log*
+.local/
+.workbuddy/
+.trae-html-share-packages/

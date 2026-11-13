@@ -1,4 +1,4 @@
-export type GameTheme = 'snake' | 'merge'
+export type GameTheme = 'snake' | 'merge' | 'fish'
 
 export type Game = {
   slug: string
@@ -39,6 +39,24 @@ export const games: Game[] = [
     status: 'playable',
     theme: 'merge',
     controls: ['方向键 / WASD 滑动方块', '手机直接在棋盘上滑动', 'R 键重新开始'],
+  },
+  {
+    slug: 'fish',
+    title: '贪吃鱼',
+    english: 'BIG FISH',
+    description:
+      '在像素深海里吞掉比你小的鱼，躲开更大的家伙。带连击、冲刺和生命值，越吃越强。',
+    tags: ['像素风', '街机', '生存'],
+    category: '街机',
+    year: '2026',
+    status: 'playable',
+    theme: 'fish',
+    controls: [
+      '鼠标移动 / WASD / 方向键控制游动',
+      '空格或点击「冲刺」瞬间加速',
+      '手机按住屏幕拖动游动，点右下角冲刺',
+      '带 ! 标记的大鱼会咬你，别靠近',
+    ],
   },
   {
     slug: 'next',

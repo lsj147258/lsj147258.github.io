@@ -137,6 +137,65 @@ function MergeArt() {
   )
 }
 
+function FishArt() {
+  return (
+    <svg viewBox="0 0 400 300" className="h-full w-full" role="img" aria-label="贪吃鱼插画">
+      <defs>
+        <linearGradient id="fish-water" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+
+      <g fill="#FFFFFF" opacity="0.3">
+        <rect x="46" y="0" width="30" height="300" rx="15" />
+        <rect x="128" y="0" width="18" height="300" rx="9" />
+        <rect x="300" y="0" width="24" height="300" rx="12" />
+      </g>
+      <rect width="400" height="300" fill="url(#fish-water)" opacity="0.5" />
+
+      <g fill="none" stroke="#FFFFFF" strokeOpacity="0.8" strokeWidth="2">
+        <circle cx="84" cy="76" r="5" />
+        <circle cx="100" cy="46" r="3" />
+        <circle cx="318" cy="106" r="4" />
+        <circle cx="330" cy="72" r="2.5" />
+      </g>
+
+      <g fill="#7FB6C9" opacity="0.55">
+        <rect x="70" y="206" width="18" height="5" rx="2.5" />
+        <rect x="62" y="204" width="7" height="9" rx="2" />
+        <rect x="320" y="190" width="15" height="4" rx="2" />
+      </g>
+
+      <g transform="translate(198 150) scale(5.4)">
+        <g fill="#D9722A">
+          <rect x="-10" y="-4" width="3" height="3" />
+          <rect x="-10" y="1" width="3" height="3" />
+          <rect x="-8" y="-2" width="3" height="4" />
+        </g>
+        <g fill="#F2913D">
+          <rect x="-6" y="-4" width="11" height="8" />
+          <rect x="-7" y="-2" width="13" height="4" />
+          <rect x="3" y="-3" width="4" height="6" />
+        </g>
+        <g fill="#FFC066">
+          <rect x="-4" y="-3" width="5" height="1" />
+          <rect x="-2" y="1" width="4" height="1" />
+        </g>
+        <g fill="#D9722A">
+          <rect x="-1" y="4" width="4" height="2" />
+          <rect x="1" y="-6" width="3" height="2" />
+        </g>
+        <rect x="4" y="-3" width="3" height="3" fill="#FBF8F1" />
+        <rect x="5" y="-2" width="1.5" height="1.5" fill="#16181C" />
+        <rect x="7" y="1" width="1" height="1" fill="#B45416" />
+      </g>
+    </svg>
+  )
+}
+
 export default function GameArt({ theme }: { theme: GameTheme }) {
-  return theme === 'merge' ? <MergeArt /> : <SnakeArt />
+  if (theme === 'merge') return <MergeArt />
+  if (theme === 'fish') return <FishArt />
+  return <SnakeArt />
 }
