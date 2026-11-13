@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta name="theme-color" content="#fbfaf6" />
+    <title>2048 · 像素橱窗</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hud">
+        <div class="brand">
+          <h1>2048</h1>
+          <p>MERGE THE NUMBERS</p>
+        </div>
+        <div class="scores">
+          <div class="score">
+            <span>SCORE</span>
+            <strong id="score">0</strong>
+          </div>
+          <div class="score">
+            <span>BEST</span>
+            <strong id="best">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <div class="board" id="board">
+        <div class="grid" id="grid" aria-hidden="true"></div>
+        <div class="tiles" id="tiles"></div>
+        <div class="overlay hidden" id="overlay">
+          <p id="overlay-title">游戏结束</p>
+          <p id="overlay-text"></p>
+          <button id="retry" type="button">再来一局</button>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>方向键 / WASD 滑动 · 手机直接在棋盘上滑动 · R 键重开</p>
+        <button id="new" type="button">新游戏</button>
+      </div>
+    </main>
+
+    <script src="./game.js"></script>
+  </body>
+</html>
