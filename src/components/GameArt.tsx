@@ -194,8 +194,78 @@ function FishArt() {
   )
 }
 
+function BreakoutArt() {
+  const rows = [
+    { y: 76, colors: ['#FF8A5B', '#FFC94B', '#7BD88F', '#5BC8E8'] },
+    { y: 102, colors: ['#FFC94B', '#7BD88F', '#5BC8E8', '#B48CF2'] },
+    { y: 128, colors: ['#7BD88F', '#5BC8E8', '#B48CF2', '#FF8A5B'] },
+  ]
+
+  return (
+    <svg viewBox="0 0 400 300" className="h-full w-full" role="img" aria-label="打砖块插画">
+      <defs>
+        <linearGradient id="paddle-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#9BE6FF" />
+          <stop offset="100%" stopColor="#3E9BD6" />
+        </linearGradient>
+      </defs>
+
+      <g stroke="#FFFFFF" strokeOpacity="0.5" strokeWidth="1">
+        <path d="M0 52h400M0 104h400M0 156h400M0 208h400M0 260h400" />
+      </g>
+
+      {rows.map((row, ri) =>
+        row.colors.map((color, ci) => (
+          <g key={`${ri}-${ci}`} opacity={ri === 0 && ci === 3 ? 0.18 : 1}>
+            <rect
+              x={87 + ci * 58}
+              y={row.y}
+              width={52}
+              height={18}
+              rx={4}
+              fill={color}
+            />
+            <rect
+              x={89 + ci * 58}
+              y={row.y + 2}
+              width={48}
+              height={3}
+              rx={1.5}
+              fill="#FFFFFF"
+              opacity="0.35"
+            />
+          </g>
+        )),
+      )}
+
+      <g fill="#7FA6C4" opacity="0.7">
+        <rect x="96" y="196" width="9" height="9" rx="1.5" transform="rotate(14 100 200)" />
+        <rect x="288" y="188" width="7" height="7" rx="1.5" transform="rotate(-18 291 191)" />
+        <rect x="306" y="210" width="5" height="5" rx="1.5" transform="rotate(28 308 212)" />
+      </g>
+
+      <circle cx="214" cy="192" r="15" fill="#FFE9A8" opacity="0.3" />
+      <circle cx="214" cy="192" r="7" fill="#FFEDBC" stroke="#F2B95C" strokeWidth="1.5" />
+
+      <path
+        d="M214 206 C 208 222, 196 232, 186 240"
+        fill="none"
+        stroke="#F2B95C"
+        strokeWidth="2"
+        strokeDasharray="3 5"
+        strokeLinecap="round"
+        opacity="0.8"
+      />
+
+      <rect x="140" y="240" width="104" height="11" rx="5.5" fill="url(#paddle-grad)" />
+      <rect x="146" y="242" width="92" height="3" rx="1.5" fill="#FFFFFF" opacity="0.4" />
+    </svg>
+  )
+}
+
 export default function GameArt({ theme }: { theme: GameTheme }) {
   if (theme === 'merge') return <MergeArt />
   if (theme === 'fish') return <FishArt />
+  if (theme === 'breakout') return <BreakoutArt />
   return <SnakeArt />
 }

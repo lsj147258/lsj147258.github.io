@@ -1,4 +1,4 @@
-export type GameTheme = 'snake' | 'merge' | 'fish'
+export type GameTheme = 'snake' | 'merge' | 'fish' | 'breakout'
 
 export type Game = {
   slug: string
@@ -56,6 +56,25 @@ export const games: Game[] = [
       '空格或点击「冲刺」瞬间加速',
       '手机按住屏幕拖动游动，点右下角冲刺',
       '带 ! 标记的大鱼会咬你，别靠近',
+    ],
+  },
+  {
+    slug: 'breakout',
+    title: '打砖块',
+    english: 'PIXEL BREAKOUT',
+    description:
+      '控制挡板接住球，敲碎上方整片像素砖墙。击球点越靠边角度越刁，清空一关就加速一关。',
+    tags: ['像素风', '街机', '反应'],
+    category: '街机',
+    year: '2026',
+    status: 'playable',
+    theme: 'breakout',
+    controls: [
+      '鼠标移动或手指拖动控制挡板，也可用 ← → / A D',
+      '点击屏幕或按空格发球',
+      '击球点越靠近挡板两端，反弹角度越大',
+      '清空全部砖块进入下一关，球速会提升',
+      '按 P 暂停，球掉落会损失一颗星',
     ],
   },
   {
