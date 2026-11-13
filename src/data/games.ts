@@ -1,4 +1,4 @@
-export type GameTheme = 'snake' | 'merge' | 'fish' | 'breakout'
+export type GameTheme = 'snake' | 'merge' | 'fish' | 'breakout' | 'tetris'
 
 export type Game = {
   slug: string
@@ -75,6 +75,25 @@ export const games: Game[] = [
       '击球点越靠近挡板两端，反弹角度越大',
       '清空全部砖块进入下一关，球速会提升',
       '按 P 暂停，球掉落会损失一颗星',
+    ],
+  },
+  {
+    slug: 'tetris',
+    title: '俄罗斯方块',
+    english: 'PIXEL TETRIS',
+    description:
+      '七种方块从顶端落下，旋转、堆叠、填满整行消除。消得越多速度越快，堆到顶就结束。',
+    tags: ['像素风', '益智', '经典'],
+    category: '益智',
+    year: '2026',
+    status: 'playable',
+    theme: 'tetris',
+    controls: [
+      '← → 或 A D 左右移动，↑ 或 X 旋转',
+      '↓ 加速下落，空格直接落到底部',
+      '填满一整行自动消除，一次消多行分数更高',
+      '每消除 10 行升一级，下落速度会加快',
+      '按 P 暂停，手机可用底部五个按钮操作',
     ],
   },
   {

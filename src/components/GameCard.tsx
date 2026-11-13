@@ -8,6 +8,7 @@ const themes: Record<Game['theme'], string> = {
   merge: 'from-[#FFF5E8] via-[#FFE7CB] to-[#FFD3A8]',
   fish: 'from-[#E9F5FA] via-[#D8EDF6] to-[#BFE3F0]',
   breakout: 'from-[#F3F1FB] via-[#E5E9FA] to-[#D1DCF5]',
+  tetris: 'from-[#F6F1FC] via-[#EDE4FA] to-[#DCCFF4]',
 }
 
 export default function GameCard({ game }: { game: Game }) {

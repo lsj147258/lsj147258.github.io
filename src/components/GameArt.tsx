@@ -263,9 +263,58 @@ function BreakoutArt() {
   )
 }
 
+function TetrisArt() {
+  const CELL = 26
+  const BASE_X = 109
+  const BASE_Y = 248
+  const columns = [
+    ['#5BC8E8', '#5BC8E8'],
+    ['#B48CF2'],
+    ['#FFC94B', '#FFC94B', '#FFC94B'],
+    ['#7BD88F', '#7BD88F'],
+    ['#FF8A5B'],
+    ['#5B7FE8', '#5B7FE8'],
+    ['#F2789F'],
+  ]
+
+  const block = (x: number, y: number, fill: string, key: string) => (
+    <g key={key}>
+      <rect x={x + 1} y={y + 1} width={CELL - 2} height={CELL - 2} rx={3} fill={fill} />
+      <rect x={x + 3} y={y + 3} width={CELL - 6} height={3} rx={1.5} fill="#FFFFFF" opacity="0.3" />
+    </g>
+  )
+
+  return (
+    <svg viewBox="0 0 400 300" className="h-full w-full" role="img" aria-label="俄罗斯方块插画">
+      <g stroke="#FFFFFF" strokeOpacity="0.5" strokeWidth="1">
+        <path d="M0 52h400M0 104h400M0 156h400M0 208h400M0 260h400" />
+      </g>
+
+      {columns.map((column, ci) =>
+        column.map((color, bi) =>
+          block(BASE_X + ci * CELL, BASE_Y - (bi + 1) * CELL, color, `s-${ci}-${bi}`),
+        ),
+      )}
+
+      <g fill="none" stroke="#B48CF2" strokeOpacity="0.45" strokeWidth="1.6" strokeDasharray="4 3">
+        <rect x={BASE_X + 4 * CELL + 2} y={144 + 2} width={CELL - 4} height={CELL - 4} rx={3} />
+        <rect x={BASE_X + 3 * CELL + 2} y={170 + 2} width={CELL - 4} height={CELL - 4} rx={3} />
+        <rect x={BASE_X + 4 * CELL + 2} y={170 + 2} width={CELL - 4} height={CELL - 4} rx={3} />
+        <rect x={BASE_X + 5 * CELL + 2} y={170 + 2} width={CELL - 4} height={CELL - 4} rx={3} />
+      </g>
+
+      {block(BASE_X + 4 * CELL, 96, '#B48CF2', 'cur-top')}
+      {block(BASE_X + 3 * CELL, 122, '#B48CF2', 'cur-b1')}
+      {block(BASE_X + 4 * CELL, 122, '#B48CF2', 'cur-b2')}
+      {block(BASE_X + 5 * CELL, 122, '#B48CF2', 'cur-b3')}
+    </svg>
+  )
+}
+
 export default function GameArt({ theme }: { theme: GameTheme }) {
   if (theme === 'merge') return <MergeArt />
   if (theme === 'fish') return <FishArt />
   if (theme === 'breakout') return <BreakoutArt />
+  if (theme === 'tetris') return <TetrisArt />
   return <SnakeArt />
 }
